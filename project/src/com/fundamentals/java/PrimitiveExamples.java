@@ -30,49 +30,53 @@ public class PrimitiveExamples {
 	double myDouble = 36.89;
 	int ab = 10;
 	int cd = 24;
-
-//Method changes instance value from 34678 to 3400 after it displays in the printLn
+	//Method changes instance value from 34678 to 3400 after it displays in the
+	// println
 	public void myFirstPrimitiveMethod() {
 		System.out.println(myInt);
 		myInt = 3400;
-		System.out.println(myInt);
+				System.out.println(myInt);
 	}
-
-// Method adds to number to the total and displays the result
+	// Method adds two numbers to the total and displays the result.
 	public void myAddition() {
 		int total = ab + cd;
 		System.out.println(total);
 	}
-
-//Method subtracts two numbers to a total and displays the result
+	// Method subtracts two numbers to a total and displays the result.
 	public void mySubtraction() {
-		int total = ab - cd;
-		System.out.println(total);
+int total = ab - cd;
+System.out.println(total);
 	}
-
-	// Method multiplies two numbers to a total and displays the result
-	public void myMultipication() {
+// Method multiplies two numbers to a total and displays the result.
+	public void myMultiplication() {
 		int total = ab * cd;
 		System.out.println(total);
 	}
-
-	// Method divides two numbers and displays the result
-	public void myDivison() {
-		double total = (double) cd / (double) ab;
-		System.out.println(total);
-	}
-
-	// Method displays the remainder of the value
+	// Method divides two numbers to a total and displays the result
 	public void myModulus() {
-		int total = ab % cd;
+		double total = (double) ab % (double) cd;
 		System.out.println(total);
+		
 	}
-
 	// Method for order of operation
-	public void myOrderop() {
-		int total = (ab = cd) * 23;
+	public void myOrderOp() {
+		int total = (ab + cd)* 23;
 		System.out.println(total);
+		
 	}
-}
+	public void conversionExample() {
+		short a = 5;
+		int b = a;
+		System.out.println(b);
+		int c = 6488888;
+		short d = (short) c;
+		System.out.println(d);
+		
+				
+	}
+	public void myDivison() {
+		double total = (double) ab / (double) cd;
+		System.out.println(total);		
+	}
 
-// TODO Auto-generated method stub
+	}
