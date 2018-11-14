@@ -18,9 +18,8 @@ protected void myAppleProtected() {
 	System.out.println("my Apple is protected");
 }
 public void display(String type, int count) {
-}{
-	int count;
 	display(type, count, "Green");
+	
 }
 public void display(String type, int count, String color) {
 	System.out.println("I would like "+count+ ""+type+"aples that are "+color);

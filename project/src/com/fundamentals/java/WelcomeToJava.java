@@ -14,7 +14,7 @@ public class WelcomeToJava {
 	
 	static {
 		MY_OTHER_VALUE = 25;
-		int total = MY_VALUE * MY_OTHER_VALUE;// total should 2500
+		int total = MY_VALUE * MY_OTHER_VALUE;// total should 250
 		System.out.println(total);
 	}
 
@@ -36,8 +36,15 @@ public class WelcomeToJava {
 		//inheritanceExample();
 		//overloadExample();
 		//overrideExample();
-		mySongExample();
-		sampleUtility();
+		//myAbstractExample();
+		//mySongExample();
+		//sampleUtility();
+	}
+	public static void myInterfaceExample() {
+		House myHouse = new House();
+		Condo myCondo = new Condo();
+		
+		
 	}
 	public void something() {
 	} // can not run in a static method
@@ -45,6 +52,20 @@ public class WelcomeToJava {
 	public static void sampleUtility() {
 		System.out.println(Utility.addSomething(5, 23));
 		Utility.somethingElse();
+	}
+	public static void myAsbstractExample() {
+		// Can't created an instance of an Abstract class
+		//Shape shape = new Shape // Not Valid 
+		System.out.println(Shape.area(5, 10));
+		Square sqaure = new Square();
+		System.out.println(square.draw());
+		Rectangle rec = new Rectangle();
+		System.out.println(rec.draw));
+		rec.setLength(10);
+		rec.setWidth(5);
+		System.out.println(Shape.area(rec.getLength(),rec.get width()));
+		
+		MyOctagon mmo = new MyOctagon();
 	}
 	
 	public static void overrideExample() {
@@ -76,7 +97,7 @@ public class WelcomeToJava {
 		System.out.println(house.getDoors());
 	}
 	
-	public static void inheritanceExample() {
+	public static void inheritanceExample1() {
 		House house = new House();
 		Condo condo = new Condo();
 	}
@@ -93,7 +114,12 @@ public class WelcomeToJava {
 		de.chainIfStatement();
 		de.switchExample(5);
 	}
-
+	public static void Quiz1() {
+		Quiz1 myQuiz = new Quiz1();
+		//myQuiz.divisibleByThree();
+		//myQuiz.grade("g");
+        //myQuiz.grade("b");
+	}
 	public static void myAssignmentExample() {
 		AssignmentExamples ae = new AssignmentExamples();
 		ae.plusEqualsExample();

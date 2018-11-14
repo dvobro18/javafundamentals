@@ -13,19 +13,19 @@ public class Cat {
 	public void jump() {
 	}
 	public void setWhiskers(String value) {
-		this.whiskers = value;
+		this.whiskers = ("value");}
 		public String getwhiskers() {
 			return whiskers;
 		}
 	
 	public void setFur(String Value) {
-		this.fur = value;
+		this.fur = ("value");}
 		public String getFur() {
 		return fur;	
 		
 	}
 	public void setlegs(String Value) {
-		this.legs = value;
+		this.legs = ("value");}
 		public String getlegs() {
 		return legs;	
 		}

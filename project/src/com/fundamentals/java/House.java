@@ -10,6 +10,10 @@ class House {
 		// TODO Auto-generated constructor stub
 	}
 
+	public class House implements Homeinterface, PlumbingInterface {
+
+	}
+
 	public House(House myHouse, House mySecondHome, House myThirdHome) {
 		// TODO Auto-generated constructor stub
 	}
@@ -40,10 +44,14 @@ class House {
 	}
 
 	public void openDoor() {
-System.out.println("I opened a Steel Door"+value);
+		System.out.println("I opened a Steel Door" + "value");
 	}
 
 	private void Closedoor() {
 
+	}
+	@Override 
+	public void installPlumbing() {
+		//TODO Auto
 	}
 }
