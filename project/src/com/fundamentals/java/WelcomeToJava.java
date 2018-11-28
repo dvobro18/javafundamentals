@@ -2,11 +2,17 @@ package com.fundamentals.java;
 
 import java.util.Scanner;
 
+import com.fundementals.data.HolidayDinner;
+
 /*
  * public - Access Modifier 
  * class - File type 
  * WelcomeTojava - Name of class 
  */
+
+enum icecream {
+	Vanila,Chocolate,Strawberry,Carmel;
+}
 public class WelcomeToJava {
 	
 	public static final int MY_VALUE;
@@ -39,12 +45,50 @@ public class WelcomeToJava {
 		//myAbstractExample();
 		//mySongExample();
 		//sampleUtility();
-	}
-	public static void myInterfaceExample() {
+		//enumExample()
+;		}
+	public static void myInterfaceExample1() {
 		House myHouse = new House();
 		Condo myCondo = new Condo();
 		
 		
+	}
+	public static void myInterfaceExample() {
+		House myHouse = new House();
+		House mySummerHouse = new House("storm windows");
+		House myLogHouse = new House("wooden windows","wooden door");
+		System.out.println(mySummerHouse.getwindows());
+		System.out.println(myLogHouse.getwindows()+"" + myLogHouse.getDoors());
+		//Condo myCondo = new Condo();
+		myHouse.decorate();
+		myHouse.installPlumbing();
+		//myCondo.decorate();
+		myHouse.supplementWork();
+		
+	}
+	public static void myConstructorPlusExample() {
+		GrannySmiths gs = new GrannySmiths();
+		gs.decide();
+		TRex tr = new TRex("Sharp","Smooth");
+		System.out.println("The TRex has " +tr.getskin()+ " skin and "+tr.getteeth()+"teeth");
+	}
+	public static void enumSample1() {
+		iceCream ic = iceCream.Strawberry;
+		System.out.println(ic);
+		HolidayDinner hd = new HolidayDinner();
+		hd.letsEat();
+		hd.letsChoose(Dinner.Turkey);
+		hd.letsChoose(Dinner.Ham);
+		hd.letsChoose(Dinner.PumpkinPie);
+		
+		Dinner d1 = Dinner MashedPotatoes;
+		System.out.println(d1);
+		d1.readyNow();
+		
+	}
+	public static void enumSample1() {
+		iceCream ic + iceCream.Strawberry;
+		System.out.println(ic);
 	}
 	public void something() {
 	} // can not run in a static method

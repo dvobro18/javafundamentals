@@ -10,5 +10,10 @@ public class Rectangle extends Square{
 	public String draw() {
 		return "Rectangle Draw";
 	}
+
+	public int get() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 }
 
