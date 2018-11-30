@@ -1,9 +1,11 @@
 package com.fundementals.data;
 
 public class Trex extends Dinosaur {
-	public TRex(String teeth, String skin) {
-		super(teeth,skin);
+	public Trex(String teeth, String skin) {
+		super(teeth, skin);
+		// TODO Auto-generated constructor stub
 	}
+	
 	@Override
 	public void move() {
 		System.out.println("All TRexs run");
