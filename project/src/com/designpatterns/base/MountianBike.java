@@ -6,6 +6,6 @@ public MountianBike(WheelInterface wheel) {
 	
 }
 public MountianBike(WheelInterface wheel, BikeInterface.Color color) {
-	
+	super(wheel,color);
 }
 }

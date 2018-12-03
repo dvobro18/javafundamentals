@@ -2,6 +2,8 @@ package com.fundamentals.java;
 
 import java.util.Scanner;
 
+import com.designpatterns.creational.BikeFrameInterface;
+import com.designpatterns.creational.SerialNumberGenerator;
 import com.fundementals.data.HolidayDinner;
 
 /*
@@ -23,7 +25,23 @@ public class WelcomeToJava {
 		int total = MY_VALUE * MY_OTHER_VALUE;// total should 250
 		System.out.println(total);
 	}
+	public static void fundamentalExample() {
+		MY_OTHER_VALUE = 35;
+	}
+public static void main (String[]args) {
+	creationalPatterns();
+}
 
+
+public static void creationalPatterns() {
+	//AbstractFactory
+	//String whatToMake = "roadBike";
+	AbstractBikeFactory factory = new RoadBikeFactory();
+	BikeFrameInterface frame = factory.createFrame();
+	BikeSeatInterface seat = factory.createBike();
+	System.out.println(frame.getFrameParts());
+	System.out.println(seat.getSeatParts());
+}
 
 	public static void main(String[] args) {
 		
@@ -37,6 +55,7 @@ public class WelcomeToJava {
 		// myOperatorExample();
 		// myAssignmentExample();
 		// myDecisionExample();
+		//mysongexample();
 		//accessmoModifierExamples();
 		//quiz1();
 		//inheritanceExample();
@@ -45,8 +64,26 @@ public class WelcomeToJava {
 		//myAbstractExample();
 		//mySongExample();
 		//sampleUtility();
-		//enumExample()
-;		}
+		//enumExample();
+		}
+	//Builder
+	RoadBike bike = new TouringBike(new NarrowWheel(22), color.CHROME);
+	BikeBuilder builder = new RoadBikeBuilder(bike);
+	BikeDirector direct = new RoadBikeDirector();
+	BikeInterface bikeInterface = director.build(builder);
+	System.out.println(bikeInterface);
+	
+	//Singleton
+	System.out.println("Generating Serial Numbers");
+	SerialNumberGenerator generator = SerialNumberGenerator.getinstance();
+	System.out.println("next serial" + generator.getNextSerial());
+	System.out.println("next serial + generator.getNextSerial"());
+	System.out.println("next + generator.getNextSerial"());
+}
+	
+	
+	
+	
 	public static void myInterfaceExample1() {
 		House myHouse = new House();
 		Condo myCondo = new Condo();

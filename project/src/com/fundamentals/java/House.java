@@ -24,13 +24,18 @@ class House1 {
 			
 		}
 
+		public Object openDoor() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 	}
 	/*Default Constructor with a println*/
 	public void House() {
 		System.out.println("My default constructor");
 	}
 	public House1(String windows) {
-		this windows = windows;
+		this. windows = windows;
 	}
 	public House1(String windows, String doors) {
 		this.windows = windows;

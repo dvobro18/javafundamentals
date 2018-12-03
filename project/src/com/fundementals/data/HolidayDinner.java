@@ -1,10 +1,10 @@
 package com.fundementals.data;
 
 public class HolidayDinner {
-	public void letseat() {
+	public void letsEat() {
 		Dinner[] d1 = Dinner.values();
 		for(Dinner myDinner : d1) {
-			System.out.println( myDinner + *at index* + myDinner.ordinal());
+			System.out.println( myDinner + * at index * + myDinner.ordinal());
 		}
 	}
 	public void letsChoose(Dinner type) {
@@ -20,7 +20,7 @@ public class HolidayDinner {
 			System.out.println("More Mac n Cheese Please ");
 			break;
 			defualt:
-				System.out.println("I'm Stuffed);
+				System.out.println("I'm Stuffed);"
 		break;
 		}
 	}
