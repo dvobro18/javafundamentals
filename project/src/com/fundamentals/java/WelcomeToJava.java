@@ -2,9 +2,40 @@ package com.fundamentals.java;
 
 import java.util.Scanner;
 
+import com.designpatteerns.behavioral.BikeGearBox;
+import com.designpatteerns.behavioral.BikeSpeedMonitor;
+import com.designpatteerns.behavioral.BikeSpeedometer;
+import com.designpatteerns.behavioral.GearBox;
+import com.designpatteerns.behavioral.SpeedMonitor;
+import com.designpatteerns.behavioral.Speedometer;
+import com.designpatteerns.behavioral.WheelDiagnostics;
+import com.designpatteerns.behavioral.WheelInventory;
+import com.designpatteerns.behavioral.mountainBikeRange;
+import com.designpatterns.base.BikeInterface;
+import com.designpatterns.base.BikeInterface.Color;
+import com.designpatterns.base.NarrowWheel;
+import com.designpatterns.base.RoadBike;
+import com.designpatterns.base.TouringBike;
+import com.designpatterns.base.WheelInterface;
+import com.designpatterns.base.WideWheel;
+import com.designpatterns.creational.AbstractBikeFactory;
+import com.designpatterns.creational.BikeBuilder;
+import com.designpatterns.creational.BikeDirector;
 import com.designpatterns.creational.BikeFrameInterface;
+import com.designpatterns.creational.BikeSeatInterface;
+import com.designpatterns.creational.RoadBikeBuilder;
+import com.designpatterns.creational.RoadBikeDirector;
+import com.designpatterns.creational.RoadBikeFactory;
 import com.designpatterns.creational.SerialNumberGenerator;
+import com.designpattterns.structural.CustomGrips;
+import com.designpattterns.structural.GoldFrameBike;
+import com.designpattterns.structural.UltraWheelAdapter;
+import com.fundamentals.java.House1.House;
+import com.fundementals.data.Dinner;
+import com.fundementals.data.GrannySmiths;
 import com.fundementals.data.HolidayDinner;
+import com.fundementals.data.Quiz2;
+import com.fundementals.data.Trex;
 
 /*
  * public - Access Modifier 
@@ -28,9 +59,10 @@ public class WelcomeToJava {
 	public static void fundamentalExample() {
 		MY_OTHER_VALUE = 35;
 	}
-public static void main (String[]args) {
+public static void main1 (String[]args) {
 	creationalPatterns();
 }
+
 
 
 public static void creationalPatterns() {
@@ -38,7 +70,7 @@ public static void creationalPatterns() {
 	//String whatToMake = "roadBike";
 	AbstractBikeFactory factory = new RoadBikeFactory();
 	BikeFrameInterface frame = factory.createFrame();
-	BikeSeatInterface seat = factory.createBike();
+	BikeSeatInterface seat = factory.createBikeSeat();
 	System.out.println(frame.getFrameParts());
 	System.out.println(seat.getSeatParts());
 }
@@ -65,11 +97,14 @@ public static void creationalPatterns() {
 		//mySongExample();
 		//sampleUtility();
 		//enumExample();
+		iteratorPattern();
+		visitorPattern();
 		}
 	//Builder
-	RoadBike bike = new TouringBike(new NarrowWheel(22), color.CHROME);
+	RoadBike bike = new TouringBike(new NarrowWheel(22), Color.CHROME);
 	BikeBuilder builder = new RoadBikeBuilder(bike);
 	BikeDirector direct = new RoadBikeDirector();
+	private BikeDirector director;
 	BikeInterface bikeInterface = director.build(builder);
 	System.out.println(bikeInterface);
 	
@@ -78,17 +113,83 @@ public static void creationalPatterns() {
 	SerialNumberGenerator generator = SerialNumberGenerator.getinstance();
 	System.out.println("next serial" + generator.getNextSerial());
 	System.out.println("next serial + generator.getNextSerial"());
-	System.out.println("next + generator.getNextSerial"());
+	System.out.println("next + generator.getNextSerial"();
+
+public static void observerPaatternV2() {
+	BikeSpeedometer speedo = new BikeSpeedometer();
+	speedo.addSpeedometerListener(new BikeSpeedMonitor());
+	speedo.addSpeedometerListener(new BikeGearBox());
+	
+	speedo.setCurrentSpeed(5);
+	speedo.setCurrentSpeed(10);
+	speedo.setCurrentSpeed(20);
+	speedo.setCurrentSpeed(30);
+	speedo.setCurrentSpeed(35);
 }
+public static void visitorPattern() {
+	WheelInterface wheel = new WideWheel(24);
+	wheel.acceptVisitor(new WheelDiagnostics());
+	wheel.acceptVisitor(new WheelInventory());
+}
+
+
+
+
+
+
+
+
+
+
+public static void adapterPatterns() {
+	List<WheelInterface>wheels = new ArrayList<WheelInterface>();
+	UltraWheel ultrawheel = new UltraWheel(28);
+	wheels.add(new NarrowWheel(24));
+	wheels.add(new NarrowWheel(20));
+	wheels.add(new NarrowWheel(24));
+	wheels.add(new UltraWheelAdapter(ultrawheel));
+	for (WheelInterface wheel : wheels) {
+	System.out.println(wheel);
+	}
+	public static void observerPatterns() {
+		//create the speed Monitor
+		SpeedMonitor monitor = new SpeedMonitor();
+		Speedometer speedo = new Speedometer();
+		speedo.addObserver(monitor);
+		speedo.addObserver(new GearBox());
+		
+		
+		speedo.setCurrentSpeed(5);
+		speedo.setCurrentSpeed(10);
+		speedo.setCurrentSpeed(20);
+		speedo.setCurrentSpeed(30);
+		speedo.setCurrentSpeed(35);
 	
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
 	public static void myInterfaceExample1() {
-		House myHouse = new House();
-		Condo myCondo = new Condo();
+		House myHouse = new House1();
+		Condo myCondo = new Condo();	
+	}
+	public static void decoratorPatterns() {
+		BikeInterface myTourBike = new TouringBike(new NarrowWheel(24));
+		System.out.println(myTourBike);
 		
-		
+		myTourBike = new GoldFrameBike(myTourBike);
+		System.out.println(myTourBike);
+		myTourBike = new CustomGrips(myTourBike);
+		System.out.println(myTourBike);
 	}
 	public static void myInterfaceExample() {
 		House myHouse = new House();
@@ -103,14 +204,47 @@ public static void creationalPatterns() {
 		myHouse.supplementWork();
 		
 	}
+	public static void iteratorPattern() {
+		System.out.println(" = = = ");
+		RoadBikeRange bikeRange = new RoadBikeRange();
+		printiterator(bikeRange.iterator());
+		System.out.println(" = = = Our MOuntian Bikes = = =  ");
+		MountainBikeRange mountainBikeRange.iterator();
+	}
+	public static void printiterator(iterator iter) {
+		while(iter.hasNext()) {
+			System.out.println(iter.next());
+		}
+	}
+	public static void iteratorPatternV2() {
+		system.out.println(" = = = Our Road Bikes = = =");
+		RoadBikeRange bikeRange = new RoadBikeRange();
+		for (BikeInterface bikes : bikeRange.getRange()) {
+			System.out.println(bikes);
+		}
+	System.out.println(" = = = Our Mountain Bike = = =");
+	mountainBikeRange.mountainBikeRange = new MountianBikeRange();
+	for (BikeInterface bikes : mountainBikeRange.getRange()) {
+		System.out.println(bikes);
+	}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public static void myConstructorPlusExample() {
 		GrannySmiths gs = new GrannySmiths();
 		gs.decide();
-		TRex tr = new TRex("Sharp","Smooth");
+		Trex tr = new Trex("Sharp","Smooth");
 		System.out.println("The TRex has " +tr.getskin()+ " skin and "+tr.getteeth()+"teeth");
 	}
-	public static void enumSample1() {
-		iceCream ic = iceCream.Strawberry;
+	public static void enumSample11() {
+		icecream ic = icecream.Strawberry;
 		System.out.println(ic);
 		HolidayDinner hd = new HolidayDinner();
 		hd.letsEat();
@@ -124,7 +258,7 @@ public static void creationalPatterns() {
 		
 	}
 	public static void enumSample1() {
-		iceCream ic + iceCream.Strawberry;
+		icecream ic + iceCream.Strawberry;
 		System.out.println(ic);
 	}
 	public void something() {
@@ -145,14 +279,13 @@ public static void creationalPatterns() {
 		rec.setLength(10);
 		rec.setWidth(5);
 		System.out.println(Shape.area(rec.getLength(),rec.get width()));
-		
-		MyOctagon mmo = new MyOctagon();
-	}
+		  MyOctagon();
+	
 	
 	public static void overrideExample() {
 		House myHouse =  new House();
 		Condo myCondo = new Condo();
-		House myOtherhouse = new Condo(); //Inplicit Cast
+		House myOtherhouse = (House) new Condo(); //Implicit Cast
 		Condo myOtherCondo = (Condo)new House();//Explicit Cast
 		//myHouse.openDoor();
 		//myCondo.openDoor();
@@ -173,7 +306,7 @@ public static void creationalPatterns() {
 		House house = new House();
 		Condo condo = new Condo();
 		condo.setDoors("Red Door");
-		System.out.println(condo.getDoors());
+		System.out.println(((House1) condo).getDoors());
 		house.setDoors("Purple Door");
 		System.out.println(house.getDoors());
 	}
@@ -196,7 +329,7 @@ public static void creationalPatterns() {
 		de.switchExample(5);
 	}
 	public static void Quiz1() {
-		Quiz1 myQuiz = new Quiz1();
+		Quiz2 myQuiz = new Quiz2();
 		//myQuiz.divisibleByThree();
 		//myQuiz.grade("g");
         //myQuiz.grade("b");

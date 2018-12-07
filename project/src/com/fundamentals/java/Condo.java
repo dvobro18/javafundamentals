@@ -27,4 +27,16 @@ public class Condo extends House{
 		//TODO Auto-generated method stub
 		System.out.println("Decorate Condo");
 	}
+	public void setDoors(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public char[] getDoors() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setDoors(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 }

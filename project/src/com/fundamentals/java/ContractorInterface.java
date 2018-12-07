@@ -5,6 +5,8 @@ public interface ContractorInterface {
 	public void supplementWork();
 
 	void decorate();
+
+	Object openDoor();
 	
 
 }

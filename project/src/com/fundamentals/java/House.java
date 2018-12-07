@@ -12,6 +12,17 @@ class House1 {
 
 	public class House implements Homeinterface, PlumbingInterface {
 
+		public char[] doors;
+		public int length;
+
+		public House(House myHouse, House mySecondHome, House myThirdHome) {
+			// TODO Auto-generated constructor stub
+		}
+
+		public House() {
+			// TODO Auto-generated constructor stub
+		}
+
 		@Override
 		public void supplementWork() {
 			// TODO Auto-generated method stub
@@ -27,6 +38,21 @@ class House1 {
 		public Object openDoor() {
 			// TODO Auto-generated method stub
 			return null;
+		}
+
+		public void setDoors(String string) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		public char[] getDoors() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		public void decorate() {
+			// TODO Auto-generated method stub
+			
 		}
 
 	}
