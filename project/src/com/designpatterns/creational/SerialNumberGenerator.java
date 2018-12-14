@@ -10,7 +10,7 @@ public synchronized static SerialNumberGenerator getinstance() {
 	return instance;
 }
 private SerialNumberGenerator() {}
-public synchronized int getNextSeerial() {
+public synchronized int getNextSerial() {
 	return + +count;
 }
 }
